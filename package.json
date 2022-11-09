@@ -1,0 +1,65 @@
+{
+  "name": "vue-typed-properties",
+  "version": "1.0.0",
+  "private": false,
+  "description": "TypeScript utility type for setting Vue.js component properties",
+  "keywords": [
+    "types",
+    "typescript",
+    "vue"
+  ],
+  "homepage": "https://github.com/andrewvasilchuk/vue-typed-properties#readme",
+  "bugs": {
+    "url": "https://github.com/andrewvasilchuk/vue-typed-properties/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewvasilchuk/vue-typed-properties.git"
+  },
+  "license": "MIT",
+  "author": "Andrew Vasylchuk <andrew.d.vasilchuk@gmail.com>",
+  "contributors": [
+    {
+      "name": "Andrew Vasylchuk",
+      "email": "andrew.d.vasilchuk@gmail.com"
+    }
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf .dist/* && tsc ./src/index.ts --outDir ./dist --declaration",
+    "fmt": "npm run fmt:prettier && npm run fmt:package-json",
+    "fmt:package-json": "sort-package-json",
+    "fmt:prettier": "prettier --write ./**/*.{ts,md}",
+    "lint": "npm run lint:editorconfig && npm run lint:package-json && npm run lint:prettier && npm run lint:remark",
+    "lint:editorconfig": "editorconfig-checker",
+    "lint:package-json": "sort-package-json --check",
+    "lint:prettier": "prettier --check ./**/*.{ts,md}",
+    "lint:remark": "remark {.,.github}",
+    "prepare": "npm run build",
+    "test": "tsc ./tests/index.ts --noEmit"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "editorconfig-checker": "^4.0.2",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "remark-cli": "^11.0.0",
+    "remark-lint": "^9.1.1",
+    "remark-preset-lint-recommended": "^6.1.2",
+    "rimraf": "^3.0.2",
+    "sort-package-json": "^2.1.0",
+    "typescript": "^4.8.4",
+    "vue": "^2.7.14",
+    "vue-template-compiler": "^2.7.14"
+  },
+  "peerDependencies": {
+    "vue": ">=2.x <3.x"
+  }
+}
